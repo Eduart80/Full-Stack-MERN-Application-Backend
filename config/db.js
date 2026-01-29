@@ -4,7 +4,7 @@ const uri = process.env.MONGODB_URI
 
 mongoose
   .connect(uri)
-  .then(() => console.log(console.log(`Connected to MongoDB database: ${mongoose.connection.name}`)))
+  .then(() => console.log(`Connected to MongoDB database: ${mongoose.connection.name}`))
   .catch((err) => console.error("Connection error", err))
 
 mongoose.connection.once('error', (error) => {
