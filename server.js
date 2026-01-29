@@ -1,7 +1,9 @@
 require('dotenv').config()
+require('./config/db')
 const express = require('express')
-const app = express()
 const PORT = process.env.PORT
+
+const app = express()
 
 //middleware
 app.use(express.json())

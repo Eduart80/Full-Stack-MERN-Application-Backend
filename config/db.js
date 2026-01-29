@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
-require('dotenv').config()
 
-const uri = process.env.MONGO_URL
+const uri = process.env.MONGODB_URI
 
 mongoose
   .connect(uri)
@@ -10,4 +9,4 @@ mongoose
 
 mongoose.connection.once('error', (error) => {
   console.log('There has been an error with MongoDB: ', error);
-});
+})
