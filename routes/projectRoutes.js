@@ -5,7 +5,7 @@ const projectController = require('../controller/projectController')
 
 router.get('/api/projects', authMiddleware, projectController.getAllProjects)
 // router.get('/:id', projectController.getOneProject)
-// router.post('/', projectController.createOneProject)
+router.post('/api/projects', authMiddleware, projectController.createOneProject)
 // router.put('/:id', projectController.updateProject)
 // router.delete('/:id', projectController.deleteProject)
 
