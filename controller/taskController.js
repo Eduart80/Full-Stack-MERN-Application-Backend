@@ -33,18 +33,28 @@ async function getAllTasks(req,res){
 }
 // Get by id
 async function getOneTask(req, res) {
-    console.log("req.user:", req.user);
     try {
-        const task = await Task.findOne({ _id: req.params.id, user: req.user._id });
-        if (!task) return res.status(404).json({ message: "Task not found" });
-        res.json(task);
+        const task = await Task.findOne({ _id: req.params.id, user: req.user._id })
+        if (!task) return res.status(404).json({ message: "Task not found" })
+        res.json(task)
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(400).json({ message: error.message })
     }
 }
-
+//Delete
+async function deleteTask(req,res){
+    try{
+        const task = await Task.findOne({ _id: req.params.id, user: req.user._id })
+        if (!task) return res.status(404).json({ message: "Task not found" })
+        await task.deleteOne()
+        res.json({message: "Task deleted"})
+    }catch(error){
+        res.status(400).json({message: error.message})
+    }
+}
 module.exports = {
     createTask,
     getAllTasks,
-    getOneTask
+    getOneTask,
+    deleteTask
 }

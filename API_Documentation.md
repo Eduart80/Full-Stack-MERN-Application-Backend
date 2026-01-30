@@ -61,11 +61,11 @@
 ---
 
 ## Task Endpoints
-
+ 
 ### Create Task
 **POST** `/api/projects/:projectId/tasks`
 - Auth required
-- Request: `{ projectId, name, description, status, tags }`
+- Request: `{ projectId, user, title, description, status }`
 - Response: Task object
 
 ### Get One Task for Project
@@ -81,7 +81,7 @@
 ### Update Task
 **PUT** `/api/tasks/:id`
 - Auth required
-- Request: `{ name, description, status, tags }`
+- Request: `{ title, description, status }`
 - Response: Updated task object
 
 ### Delete Task
@@ -93,6 +93,7 @@
 // hiqe kete ose modific
 ## Notes
 - All endpoints requiring authentication expect a valid JWT token.
-- `status` fields are numbers (see your model for details).
-- `tags` are arrays of strings.
+- `title` string 
+- `desctription` string paragraph
+- `status` is arrays of strings.
 - `startDate` and `endDate` are ISO date strings.
