@@ -1,3 +1,12 @@
 const express = require('express')
 const router = express.Router()
 const authMiddleware = require('../middleware/auth')
+const projectController = require('../controller/projectController')
+
+router.get('/api/projects', authMiddleware, projectController.getAllProjects)
+// router.get('/:id', projectController.getOneProject)
+// router.post('/', projectController.createOneProject)
+// router.put('/:id', projectController.updateProject)
+// router.delete('/:id', projectController.deleteProject)
+
+module.exports = router

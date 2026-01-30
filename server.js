@@ -4,6 +4,8 @@ const express = require('express')
 const PORT = process.env.PORT
 const passport = require('passport')
 const userRouter = require('./routes/userRoutes')
+const projectRouter = require('./routes/projectRoutes')
+const taskRouter = require('./routes/taskRoutes')
 
 const app = express()
 
@@ -12,7 +14,9 @@ app.use(express.json())
 app.use(passport.initialize())
 
 //Routers
-app.use(userRouter)
+app.use( userRouter)
+app.use( projectRouter)
+// app.use('/api/tasks', taskRouter)
 
 //api call
 app.get('/', (req,res)=>{

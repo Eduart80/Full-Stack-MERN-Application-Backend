@@ -1,12 +1,6 @@
 const {Schema, model} = require('mongoose')
 const bycrp = require('bcrypt')
-/**
- * Registration:
-      - User can submit a registration form with username, email, and password.
-      - System validates input and checks for existing users.
-      - Passwords are securely hashed before storage.
-      - User receives confirmation of successful registration or error messages.
- */
+
 const userSchema = new Schema({
     username:{
         type:String,
