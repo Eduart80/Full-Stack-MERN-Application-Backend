@@ -7,7 +7,7 @@ const taskController = require('../controller/taskController')
 router.post('/api/projects/:projectId/tasks', authMiddleware, taskController.createTask)
 router.get('/api/projects/:projectId/tasks', authMiddleware, taskController.getAllTasks)
 router.get('/api/tasks/:id', authMiddleware, taskController.getOneTask)
-// router.put('/api/tasks/:id', authMiddleware, taskController.updateTask)
+router.put('/api/tasks/:id', authMiddleware, taskController.updateTask)
 router.delete('/api/tasks/:id', authMiddleware, taskController.deleteTask)
 
 module.exports = router

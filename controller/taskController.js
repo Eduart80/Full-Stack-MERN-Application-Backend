@@ -41,6 +41,27 @@ async function getOneTask(req, res) {
         res.status(400).json({ message: error.message })
     }
 }
+//PUT
+async function updateTask(req,res){
+    try{
+        const task = await Task.findOne({_id:req.params.id, user:req.user._id})
+       if(!task){
+        return res.status(404).json({message: "Task not found"})
+       }
+// todo
+//refactor the fields if() , make it dinamic
+    const { title, description, status } = req.body;
+    
+    if(title !== undefined) task.title = title
+    if(description !== undefined) task.description = description
+    if(status !== undefined) task.status = status
+    
+       await task.save()
+       res.status(201).json(task)
+    }catch(error){
+        res.status(400).json({message: error.message})
+    }
+}
 //Delete
 async function deleteTask(req,res){
     try{
@@ -56,5 +77,6 @@ module.exports = {
     createTask,
     getAllTasks,
     getOneTask,
-    deleteTask
+    deleteTask,
+    updateTask
 }
