@@ -53,8 +53,27 @@ async function createOneProject(req,res){
         res.status(400).json({message: error.message})
     }
 }
+//PUT
 async function updateProject(req,res){
+    const project = await Project.findOne({_id:req.params.id, user:req.user._id})
+       if(!project){
+        return res.status(404).json({message: "Project not found"})
+       }
 
+    const { name, description, status, startDate, endDate } = req.body;
+    
+    if(name !== undefined) project.name = name
+    if(description !== undefined) project.description = description
+    if(status !== undefined) project.status = status
+    if(startDate !== undefined) project.startDate = startDate
+    if(endDate !== undefined) project.endDate = endDate
+    
+    try{
+        await project.save()
+        res.json(project)
+    }catch(error){
+        res.status(500).json({message: error.message})
+    }
 }
 //Delete
 async function deleteProject(req,res){

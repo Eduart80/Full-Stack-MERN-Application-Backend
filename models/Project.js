@@ -1,12 +1,11 @@
 const {Schema, model} = require('mongoose')
 
-// name, description, status, sprint start/end
 const projectSchema = new Schema({
     user: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
-    required: true,
-  },
+        type: Schema.Types.ObjectId,
+        ref: "User",
+        required: true,
+    },
     name: {
     type: String,
     required: [true, "Name is required."],
