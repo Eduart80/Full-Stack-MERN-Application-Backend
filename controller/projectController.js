@@ -21,7 +21,11 @@ async function getAllProjects(req,res){
 //GET one
 async function getOneProject(req,res){
     try{
-
+        const project = await Project.findOne({_id:req.params.id, user:req.user._id})
+       if(!project){
+        return res.status(404).json({message: "Project not found"})
+       }
+        res.json(project)
     }catch(error){
         res.status(500).json({message: error.message})
     }
