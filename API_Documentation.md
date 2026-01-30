@@ -68,8 +68,8 @@
 - Request: `{ projectId, name, description, status, tags }`
 - Response: Task object
 
-### Get Task for Project
-**GET** `/api/tasks/project/:projectId`
+### Get One Task for Project
+**GET** `/api/tasks/:id`
 - Auth required
 - Response: Array of tasks
 

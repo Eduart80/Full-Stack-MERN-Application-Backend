@@ -31,8 +31,20 @@ async function getAllTasks(req,res){
         res.status(400).json({message: error.message})
     }
 }
+// Get by id
+async function getOneTask(req, res) {
+    console.log("req.user:", req.user);
+    try {
+        const task = await Task.findOne({ _id: req.params.id, user: req.user._id });
+        if (!task) return res.status(404).json({ message: "Task not found" });
+        res.json(task);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
 
 module.exports = {
     createTask,
-    getAllTasks
+    getAllTasks,
+    getOneTask
 }
