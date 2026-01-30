@@ -24,13 +24,18 @@
 ### Create Project
 **POST** `/api/projects`
 - Auth required
-- Request: `{ name, description, status, tags, startDate, endDate }`
+- Request body:
+	- `name` (string, required)
+	- `description` (string, required)
+	- `status` (string, required, enum: 'active', 'closed')
+	- `startDate` (ISO date string, required)
+	- `endDate` (ISO date string, required)
 - Response: Project object
 
 ### Get All Projects
 **GET** `/api/projects`
 - Auth required
-- Response: Array of projects
+- Response: Array of project objects
 
 ### Get Project by ID
 **GET** `/api/projects/:id`
@@ -40,7 +45,12 @@
 ### Update Project
 **PUT** `/api/projects/:id`
 - Auth required
-- Request: `{ name, description, status, tags, startDate, endDate }`
+- Request body (any of):
+	- `name` (string)
+	- `description` (string)
+	- `status` (string, enum: 'active', 'closed')
+	- `startDate` (ISO date string)
+	- `endDate` (ISO date string)
 - Response: Updated project object
 
 ### Delete Project

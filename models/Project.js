@@ -15,6 +15,12 @@ const projectSchema = new Schema({
         type: String,
         required: [true, "Description is required."],
     },
+    status: {
+        type: String,
+        enum: ['active', 'closed'],
+        default: 'active',
+        required: true
+    },
     startDate: {
         type: Date,
         required: true
