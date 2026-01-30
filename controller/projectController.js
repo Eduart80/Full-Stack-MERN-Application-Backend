@@ -59,7 +59,8 @@ async function updateProject(req,res){
        if(!project){
         return res.status(404).json({message: "Project not found"})
        }
-
+// todo
+//refactor the fields if() , make it dinamic
     const { name, description, status, startDate, endDate } = req.body;
     
     if(name !== undefined) project.name = name

@@ -23,3 +23,11 @@ As i am creating routes i see the need to return to api documentation for api pa
 
 githubId : i change it from require true to false because since the id is unique mongodb will not let me add into this server another user. so i found a whay out to change req to false
 
+This is not a good aproach if there are many more fields to update.
+    const { name, description, status, startDate, endDate } = req.body;
+    if(name !== undefined) project.name = name
+    if(description !== undefined) project.description = description
+    if(status !== undefined) project.status = status
+    if(startDate !== undefined) project.startDate = startDate
+    if(endDate !== undefined) project.endDate = endDate
+Thinking how to find another way to update in simpler way and dinamic
