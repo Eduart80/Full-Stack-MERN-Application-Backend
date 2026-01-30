@@ -63,13 +63,18 @@
 ## Task Endpoints
 
 ### Create Task
-**POST** `/api/tasks`
+**POST** `/api/projects/:projectId/tasks`
 - Auth required
 - Request: `{ projectId, name, description, status, tags }`
 - Response: Task object
 
-### Get Tasks for Project
+### Get Task for Project
 **GET** `/api/tasks/project/:projectId`
+- Auth required
+- Response: Array of tasks
+
+### Get All Tasks for Project
+**GET** `/api/projects/:projectId/tasks`
 - Auth required
 - Response: Array of tasks
 

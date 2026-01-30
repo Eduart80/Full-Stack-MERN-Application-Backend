@@ -16,7 +16,7 @@ app.use(passport.initialize())
 //Routers
 app.use( userRouter)
 app.use( projectRouter)
-// app.use('/api/tasks', taskRouter)
+app.use( taskRouter)
 
 //api call
 app.get('/', (req,res)=>{

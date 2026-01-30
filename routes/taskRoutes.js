@@ -4,9 +4,9 @@ const authMiddleware = require('../middleware/auth')
 const taskController = require('../controller/taskController')
 
 // task routes
-// router.post('/', taskController.createTask)
-// router.get('/project/:projectId', taskController.getTasksForProject)
+router.post('/api/projects/:projectId/tasks', authMiddleware, taskController.createTask)
+// router.get('/', taskController.getTasksForProject)
 // router.put('/:id', taskController.updateTask)
 // router.delete('/:id', taskController.deleteTask)
 
-// module.exports = router
+module.exports = router
