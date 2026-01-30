@@ -57,7 +57,7 @@ async function updateTask(req,res){
     if(status !== undefined) task.status = status
     
        await task.save()
-       res.status(201).json(task)
+       res.json(task)
     }catch(error){
         res.status(400).json({message: error.message})
     }
