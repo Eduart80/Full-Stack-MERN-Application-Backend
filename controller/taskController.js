@@ -21,7 +21,18 @@ async function createTask(req,res) {
         res.status(400).json({message: error.message})
     }
 }
+//Get All
+async function getAllTasks(req,res){
+    try{
+        const projectId = req.params.projectId
+        const tasks = await Task.find({project:projectId, user:req.user._id})
+        res.json(tasks)
+    }catch(error){
+        res.status(400).json({message: error.message})
+    }
+}
 
 module.exports = {
-    createTask
+    createTask,
+    getAllTasks
 }

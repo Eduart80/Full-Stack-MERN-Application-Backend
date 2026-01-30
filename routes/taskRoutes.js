@@ -5,6 +5,7 @@ const taskController = require('../controller/taskController')
 
 // task routes
 router.post('/api/projects/:projectId/tasks', authMiddleware, taskController.createTask)
+router.get('/api/projects/:projectId/tasks', authMiddleware, taskController.getAllTasks)
 // router.get('/', taskController.getTasksForProject)
 // router.put('/:id', taskController.updateTask)
 // router.delete('/:id', taskController.deleteTask)
