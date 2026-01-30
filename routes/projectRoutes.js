@@ -7,6 +7,6 @@ router.get('/api/projects', authMiddleware, projectController.getAllProjects)
 router.get('/api/projects/:id',authMiddleware, projectController.getOneProject)
 router.post('/api/projects', authMiddleware, projectController.createOneProject)
 // router.put('/:id', projectController.updateProject)
-// router.delete('/:id', projectController.deleteProject)
+router.delete('/api/projects/:id', authMiddleware, projectController.deleteProject)
 
 module.exports = router

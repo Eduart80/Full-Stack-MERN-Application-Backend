@@ -3,9 +3,8 @@ const bycrp = require('bcrypt')
 
 const userSchema = new Schema({
     username:{
-        type:String,
-        require:true,
-        unique:true,
+        type: String,
+        required: false,
         trim:true
     },
     email:{
@@ -26,7 +25,6 @@ const userSchema = new Schema({
     githubId: {
         type: String,
         required: false,
-        unique: true,
         },
 })
 

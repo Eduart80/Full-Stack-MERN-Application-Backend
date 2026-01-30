@@ -53,7 +53,7 @@ async function loginUser(req,res){
 //log out
 async function logOutUser(req,res){
     res.clearCookie('token')
-    return res.status(200).json({message: 'Logged put successfully'})
+    return res.status(200).json({message: 'Logged out successfully'})
 }
 
 module.exports ={
