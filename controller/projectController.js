@@ -1,5 +1,6 @@
 const express = require('express')
 const Project = require('../models/Project')
+const Task = require('../models/Task')
 
 
 // GET all
@@ -25,9 +26,8 @@ async function getOneProject(req,res){
        if(!project){
         return res.status(404).json({message: "Project not found"})
        }
-//TO DO
-// need to find tasks attached to this project id
-        res.json(project)
+       const projectTask = await Task.find({project: project._id})
+        res.json({project, projectTask})
     }catch(error){
         res.status(500).json({message: error.message})
     }
@@ -59,16 +59,14 @@ async function updateProject(req,res){
        if(!project){
         return res.status(404).json({message: "Project not found"})
        }
-// todo
-//refactor the fields if() , make it dinamic
+
     const { name, description, status, startDate, endDate } = req.body;
-    
-    if(name !== undefined) project.name = name
-    if(description !== undefined) project.description = description
-    if(status !== undefined) project.status = status
-    if(startDate !== undefined) project.startDate = startDate
-    if(endDate !== undefined) project.endDate = endDate
-    
+    Object.keys(req.body).forEach(key => {
+        if (project[key] !== undefined) {
+            project[key] = req.body[key];
+        }
+    })
+
     try{
         await project.save()
         res.json(project)

@@ -31,3 +31,8 @@ This is not a good aproach if there are many more fields to update.
     if(startDate !== undefined) project.startDate = startDate
     if(endDate !== undefined) project.endDate = endDate
 Thinking how to find another way to update in simpler way and dinamic
+
+
+
+
+
