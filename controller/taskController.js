@@ -48,14 +48,13 @@ async function updateTask(req,res){
        if(!task){
         return res.status(404).json({message: "Task not found"})
        }
-// todo
-//refactor the fields if() , make it dinamic
-    const { title, description, status } = req.body;
-    
-    if(title !== undefined) task.title = title
-    if(description !== undefined) task.description = description
-    if(status !== undefined) task.status = status
-    
+
+     Object.keys(req.body).forEach(key => {
+        if (task[key] !== undefined) {
+            task[key] = req.body[key];
+        }
+    })
+   
        await task.save()
        res.json(task)
     }catch(error){

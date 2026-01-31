@@ -60,7 +60,6 @@ async function updateProject(req,res){
         return res.status(404).json({message: "Project not found"})
        }
 
-    const { name, description, status, startDate, endDate } = req.body;
     Object.keys(req.body).forEach(key => {
         if (project[key] !== undefined) {
             project[key] = req.body[key];
