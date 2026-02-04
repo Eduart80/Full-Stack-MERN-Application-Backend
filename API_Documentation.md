@@ -90,10 +90,6 @@
 - Response: Success message
 
 ---
-// hiqe kete ose modific
+
 ## Notes
 - All endpoints requiring authentication expect a valid JWT token.
-- `title` string 
-- `desctription` string paragraph
-- `status` is arrays of strings.
-- `startDate` and `endDate` are ISO date strings.
