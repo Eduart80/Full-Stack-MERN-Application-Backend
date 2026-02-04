@@ -32,7 +32,12 @@ This is not a good aproach if there are many more fields to update.
     if(endDate !== undefined) project.endDate = endDate
 Thinking how to find another way to update in simpler way and dinamic
 
-
+found new aproach to dynamic loop throught the object body
+ Object.keys(req.body).forEach(key => {
+        if (project[key] !== undefined) {
+            project[key] = req.body[key];
+        }
+    })
 
 
 
