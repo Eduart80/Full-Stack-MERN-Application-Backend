@@ -93,3 +93,4 @@
 
 ## Notes
 - All endpoints requiring authentication expect a valid JWT token.
+- Also check [API usage guide](./API_Usage_Guide.md) for more 
