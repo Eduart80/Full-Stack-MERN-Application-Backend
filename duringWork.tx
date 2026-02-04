@@ -1,0 +1,23 @@
+As i am creating routes i see the need to return to api documentation and see api paths,
+how i decided to find or create etc.
+
+githubId : i change it from require true to false because since the id is unique mongodb 
+will not let me add into this server another user. so i found a whay out to change req to false
+
+This is not a good aproach if there are many more fields to update.
+PUT call
+    const { name, description, status, startDate, endDate } = req.body;
+        if(name !== undefined) project.name = name
+        if(description !== undefined) project.description = description
+        if(status !== undefined) project.status = status
+        if(startDate !== undefined) project.startDate = startDate
+        if(endDate !== undefined) project.endDate = endDate
+Thinking how to find another way to update in simpler way and dinamic
+
+found new aproach to dynamic loop throught the object body
+ Object.keys(req.body).forEach(key => {
+        if (project[key] !== undefined) {
+            project[key] = req.body[key];
+        }
+    })
+
